@@ -1,5 +1,5 @@
 public class MaquinaExpendedoraMejorada {
-    
+   
     // El precio del billete
     private int precioBillete;
     // La cantidad de dinero que lleva metida el cliente actual
@@ -10,9 +10,12 @@ public class MaquinaExpendedoraMejorada {
     private String estacionOrigen;
     // El destino del billete
     private String estacionDestino;
+   
+    
+   
 
     /**
-     * Crea una maquina expendedora de billetes de tren con el 
+     * Crea una maquina expendedora de billetes de tren con el
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
@@ -22,6 +25,7 @@ public class MaquinaExpendedoraMejorada {
         totalDineroAcumulado = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
+        
     }
 
     /**
@@ -47,13 +51,22 @@ public class MaquinaExpendedoraMejorada {
         }
         else {
             System.out.println(cantidadIntroducida + " no es una cantidad de dinero valida.");
-        }        
+        }      
+       
+   
     }
 
     /**
      * Imprime un billete para el cliente actual
      */
     public void imprimirBillete() {
+        int cantidadDeDineroQueFalta = balanceClienteActual - precioBillete;
+        if (balanceClienteActual >= precioBillete) {
+            System.out.println("Gracias por su compra");
+        }
+        else {
+            System.out.println("Dinero insuficiente");
+        }
         if (balanceClienteActual >= precioBillete) {        
             // Simula la impresion de un billete
             System.out.println("##################");
@@ -61,8 +74,8 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
             System.out.println("# " + precioBillete + " euros.");
             System.out.println("##################");
-            System.out.println();         
-    
+            System.out.println();        
+   
             // Actualiza el total de dinero acumulado en la maquina
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
@@ -70,10 +83,14 @@ public class MaquinaExpendedoraMejorada {
         }
         else {
             System.out.println("Necesitas introducir " + (precioBillete - balanceClienteActual) + " euros mas!");
-                    
-        }            
+                   
+        }        
+       
+       
+       
     }
-    
+   
+   
     /**
      * Cancela la operacion de compra del cliente actual y le
      * devuelve al cliente el dinero que ha introducido hasta el momento
@@ -83,5 +100,7 @@ public class MaquinaExpendedoraMejorada {
         cantidadDeDineroADevolver = balanceClienteActual;
         balanceClienteActual = 0;
         return cantidadDeDineroADevolver;
-    } 
-}
+           }
+           
+       
+   }
