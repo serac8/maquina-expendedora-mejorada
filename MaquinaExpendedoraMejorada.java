@@ -104,6 +104,7 @@ public class MaquinaExpendedoraMejorada {
         if (balanceClienteActual > 0) {
             System.out.println("No se puede vaciar la máquina con una operación en curso");
             System.out.println("Cancele la operación y vuelva a intentarlo");
+            vaciarMaquina = -1;
             
         }
         else {
