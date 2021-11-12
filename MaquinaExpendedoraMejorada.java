@@ -16,7 +16,10 @@ public class MaquinaExpendedoraMejorada {
     private boolean premioMaquina;
     //Límite de billetes
     private int maximoBilletes;
-   
+    
+    private int billetesPremio;
+    
+    
     
    
 
@@ -37,6 +40,8 @@ public class MaquinaExpendedoraMejorada {
         numeroBilletesVendidos = 0;
         premioMaquina = premio;
         maximoBilletes = maxVentaBilletes;
+        billetesPremio = 0;
+        
     }
 
     
@@ -100,9 +105,16 @@ public class MaquinaExpendedoraMejorada {
             balanceClienteActual = balanceClienteActual - precioBillete;
             
             numeroBilletesVendidos = numeroBilletesVendidos + 1;
+            
+            
+            
             if (premioMaquina == true) {
+                billetesPremio = numeroBilletesVendidos % 3;
+                
+                if (billetesPremio == 0){
                 double descuentoPrecioBillete = precioBillete * 0.10;    
                 System.out.println("Tiene" + descuentoPrecioBillete + "euros de descuento en cualquier supermercado");
+                }
             } 
             
         }
